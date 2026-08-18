@@ -1,5 +1,5 @@
 window.SITE_CONFIG = {
-  defaultLink: "https://gg8850.com/?id=248422193",
+  defaultLink: "https://www.gg8858.com/?id=789440420",
   loadingPath: "/07124351",
 };
 
