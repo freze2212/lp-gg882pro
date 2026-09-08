@@ -1,5 +1,5 @@
 window.SITE_CONFIG = {
-  defaultLink: "https://gg8843.com/home/register?id=377696286",
+  defaultLink: "",
   loadingPath: "/07124351",
 };
 
