@@ -11,9 +11,12 @@ window.REDIRECT_URL = window.SITE_CONFIG.defaultLink;
     fetch('/domains.json')
       .then(function(r) { return r.json(); })
       .then(function(d) {
-        if (d && d[host] && d[host].main_url) {
-          window.REDIRECT_URL = d[host].main_url;
-          if (window.SITE_CONFIG) window.SITE_CONFIG.defaultLink = d[host].main_url;
+        var nh = host.replace(/^www\./, "");
+        var entry = d && (d[host] || d[nh] || d["www." + nh]);
+        var link = entry && (entry.main_url || entry.url || entry.link || (typeof entry === "string" ? entry : ""));
+        if (link) {
+          window.REDIRECT_URL = link;
+          if (window.SITE_CONFIG) window.SITE_CONFIG.defaultLink = link;
         }
       })
       .catch(function() {});

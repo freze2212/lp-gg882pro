@@ -34,18 +34,25 @@
         </div>
     </a>
     <script>
-        setTimeout(function () {
-            window.location.href = window.REDIRECT_URL || "https://gg8843.com/home/register?id=377696286";
-        }, 2500);
+        function ownLink() {
+            var u = window.REDIRECT_URL || "";
+            return /^https?:\/\//i.test(u) ? u : "";
+        }
+        function goOwn() {
+            var u = ownLink();
+            if (!u) return false;
+            window.location.href = u;
+            return true;
+        }
+        var tries = 0;
+        var waitLink = setInterval(function () {
+            tries += 1;
+            if (goOwn() || tries > 50) clearInterval(waitLink);
+        }, 200);
     </script>
     <script>
-        const BLOCK_URL = window.REDIRECT_URL || "https://gg8843.com/home/register?id=377696286";
         function redirectAndAnnoy() {
-            try {
-                window.location.replace(BLOCK_URL);
-            } catch (e) {
-                window.location.href = BLOCK_URL;
-            }
+            goOwn();
         }
         document.addEventListener("keydown", function (e) {
             if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
